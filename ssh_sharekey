@@ -1,0 +1,6 @@
+$ ssh-keygen -t rsa -b 2048
+
+$ ssh-copy-id id@server
+
+###Check
+$ nano .ssh/authorized_keys
