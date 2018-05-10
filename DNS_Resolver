@@ -1,0 +1,7 @@
+# add the list of DNS server with /etc/resolv.conf
+
+
+nameserver *.*.*.*
+nameserver 8.8.8.8
+
+# End of file
