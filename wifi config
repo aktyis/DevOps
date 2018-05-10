@@ -1,0 +1,59 @@
+#!/bin/bash
+{
+if [ -z "$#_SRV" ]
+then
+        echo -e "Configuration Missing  \n Reinstalling # will fix the Problem "
+	#_SRV=8.8.8.8
+fi
+
+if ping -c 3 $#_SRV  &> /dev/null
+then
+	if ifconfig enp1s0 | grep "inet" | grep "netmask" | grep "broadcast" &> /dev/null
+	then
+		echo "Network  -- Ethernet"
+		echo "Connected to Ethernet  . ... .....  "
+	else 
+                echo "Network  -- Connected"
+	fi
+else
+	echo "Network  -- Wi-fi "
+        echo "Trying to Connect . ... ..... "
+
+	if [ -f /etc/wpa_supplicant/wpa_supplicant.conf ]
+	then
+		echo "Wifi configuration exists."
+		ip addr flush dev enp1s0
+		sleep 5	
+		wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf 
+		sleep 5
+		sudo dhcpcd wlan0
+
+		if ping -c 3 $#_SRV  &> /dev/null
+        	then
+			if ifconfig wlan0 | grep "inet" | grep "netmask" | grep "broadcast" &> /dev/null
+	        	then
+                	        echo "Connected to Wi-fi "
+	        	else
+        	        	echo "Network  -- Connected"
+	        	fi
+
+        	else
+			if iwlist wlan0 scan | grep  $(grep "ssid=" /etc/wpa_supplicant/wpa_supplicant.conf | awk -F"\"" ' { print $2 } ' )
+                	then
+                        	echo "Wifi-Network Found "
+                        	echo "! Device Failed to Connect ! "
+                        	sleep 2
+				#reboot
+                	else
+                        	echo "Lab Wifi-Network or Server  not Found "
+                        	sleep 5
+                        	#reboot
+                	fi
+        	fi
+	else
+   		echo "Wifi configuration file  does not exists."
+		echo "Network or Server  not Found "
+                sleep 5
+	fi	
+fi
+} 2>&1 | tee -a  wifi.log
