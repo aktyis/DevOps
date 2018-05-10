@@ -1,0 +1,13 @@
+echo "Installing files ..."
+mkdir /etc/pacman.d/hooks
+
+## copy db 
+mkdir -vp /mnt/var/lib/pacman/sync/
+cp -v /mnt/var/cache/pacman/pkg/*.db /mnt/var/lib/pacman/sync/
+
+
+ln -s /dev/null /etc/pacman.d/hooks/man-db.hook
+ln -s /dev/null /etc/pacman.d/hooks/texinfo-install.hook
+
+
+pacman --root /mnt --cachedir /mnt/var/cache/pacman/pkg/ --config /etc/pacman.conf -S base base-devel 
