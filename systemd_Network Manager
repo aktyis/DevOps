@@ -1,0 +1,10 @@
+// Network Management with systemd
+
+// File added to /etc/systemd/network/ folder then enable the service to add it to boot
+
+// change ip with systemd-networkd
+
+// restart systemd-networkd service with systemctl  
+
+
+nano /etc/systemd/network/wired.network
