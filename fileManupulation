@@ -1,0 +1,3 @@
+# read a files absolute path with readlink
+
+readlink -f file.txt
