@@ -1,0 +1,14 @@
+# use nano for visual editor tool,
+export VISUAL=nano
+
+
+#edit the crontab 
+crontab -e
+
+
+# check the status of cron jobs service.
+systemctl status croniecront   
+
+
+#list of cron jobs
+crontab -e
