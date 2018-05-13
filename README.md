@@ -12,4 +12,5 @@ Works related to Development and Operations
 9. PACMAN Regular Update.
 10. Offline Arch-Linux Install from cache packages.
 11. Monitor Live Device. by ping (Alternative NagiOS XI)
-
+12. Cron jobs.
+13. Custom Environment variable 
