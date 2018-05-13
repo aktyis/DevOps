@@ -1,16 +1,18 @@
 # DevOps
 Works related to Development and Operations
 
-1. Network Monitor
-2. System IP Monitor and Lookup
-3. Remote Access
-4. Other IP in the Network 
-5. Systemd Services 
-6. NTP netwrok.
-7. WPA Supplicant Config
-8. RESYNC Package.
-9. PACMAN Regular Update.
-10. Offline Arch-Linux Install from cache packages.
-11. Monitor Live Device. by ping (Alternative NagiOS XI)
-12. Cron jobs.
-13. Custom Environment variable 
+* Network Monitor
+* System IP Monitor and Lookup
+* Remote Access
+* N-Map network scanner and port scanner
+* Other IP in the Network 
+* Systemd Services 
+* NTP netwrok.
+* WPA Supplicant Config
+* RESYNC Package.
+* PACMAN Regular Update.
+* Offline Arch-Linux Install from cache packages.
+* Monitor Live Device. by ping (Alternative NagiOS XI)
+* Cron jobs.
+* Custom Environment variable 
+* 
