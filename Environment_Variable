@@ -1,0 +1,8 @@
+# Option to use the export command
+
+export $variable
+
+# set the variable in /etc/environment file
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+
